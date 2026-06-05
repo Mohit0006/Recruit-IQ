@@ -29,8 +29,7 @@ RecruitIQ is a dual-interface recruitment platform that eliminates manual resume
 
 The system is built around a **hybrid RAG engine** that combines semantic vector search (ChromaDB) and keyword search (SQLite FTS5), fused via **Reciprocal Rank Fusion (RRF)**, and evaluated by an **open-source LLM** via the OpenRouter API.
 
----
-
+```
 ## ⚙️ System Architecture
 
 ========================================================================================
@@ -120,8 +119,8 @@ The system is built around a **hybrid RAG engine** that combines semantic vector
                                                      ▼
                                               [ 📧 CANDIDATE INBOX ]
 
----
 
+```
 ## 🚀 Key Features
 
 ### 🔍 Hybrid RAG Engine
