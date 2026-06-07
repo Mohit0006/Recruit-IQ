@@ -192,6 +192,6 @@ Engineered a URL routing bypass (`/?view_resume=email`) that decodes raw binary 
 
 ## 👤 Author
 
-Built independently by [Mohit Balwani](YOUR_LINKEDIN_URL_HERE)
+Built independently by [Mohit Balwani]([YOUR_LINKEDIN_URL_HERE](https://www.linkedin.com/in/mohit-balwani-050715413 ))
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](YOUR_LINKEDIN_URL_HERE)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)]([YOUR_LINKEDIN_URL_HERE](https://www.linkedin.com/in/mohit-balwani-050715413 ))
