@@ -2,17 +2,14 @@
 
 
 
+https://github.com/user-attachments/assets/b7011b42-1011-4d51-9f12-b3073d0d04ed
+
+
+
 # RecruitIQ — AI-Powered Recruitment Automation Platform
 
 > A production-grade, multi-component Applicant Tracking System that automates the entire hiring process using a hybrid RAG engine, LLM evaluation, FastAPI microservices, and third-party API integrations — built solo from scratch.
 
----
-
-## 🎥 Demo
-
-[![Watch Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?style=for-the-badge&logo=youtube)](YOUR_YOUTUBE_LINK_HERE)
-
----
 
 ## 📸 Screenshots
 
