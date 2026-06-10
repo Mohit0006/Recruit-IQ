@@ -11,19 +11,6 @@ https://github.com/user-attachments/assets/b7011b42-1011-4d51-9f12-b3073d0d04ed
 > A production-grade, multi-component Applicant Tracking System that automates the entire hiring process using a hybrid RAG engine, LLM evaluation, FastAPI microservices, and third-party API integrations — built solo from scratch.
 
 
-## 📸 Screenshots
-
-### Admin Command Center
-![Admin Command Center](<img width="1900" height="897" alt="a" src="https://github.com/user-attachments/assets/1edb5f11-0cd1-41a1-988f-5fc0cf074b6c" />)
-
-### RAG Ranking Output
-![RAG Ranking Output](<img width="1917" height="887" alt="c" src="https://github.com/user-attachments/assets/29073745-7ee2-44fc-8b79-3bd23885f3f4" />)
-
-### Candidate Portal
-![Candidate Portal](<img width="1917" height="887" alt="b" src="https://github.com/user-attachments/assets/323d8cf7-e5a6-458e-83f8-736274d9108a" />)
-
----
-
 ## 🧠 What is RecruitIQ?
 
 RecruitIQ is a dual-interface recruitment platform that eliminates manual resume screening and hiring logistics entirely. Candidates apply through a public portal. Admins type plain-English commands. The AI handles everything else — ranking, scheduling, and outreach — autonomously.
