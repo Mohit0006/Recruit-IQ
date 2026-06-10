@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project specific
+resumes/
+*.db
+*.csv
+ui_uploaded_jd.txt
