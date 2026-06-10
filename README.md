@@ -88,7 +88,7 @@ The system is built around a **hybrid RAG engine** that combines semantic vector
            │  └────────────────┘                                                         │
            └──────────┬──────────────────────────────────────────────────────────────────┘
                       │      ▲ 
-                      │      │ 16. FastAPI Prompts OpenRouter (gpt-4o-mini)
+                      │      │ 16. FastAPI Prompts OpenRouter (Open-Source LLM)
                       │      ▼ 
                       │ [ OpenRouter API Evaluator ]
                       │
