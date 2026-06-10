@@ -1,10 +1,6 @@
 
 
 
-https://github.com/user-attachments/assets/21439ff7-ccfd-4f7e-a39b-18212c940f57
-
-
-
 
 # RecruitIQ — AI-Powered Recruitment Automation Platform
 
