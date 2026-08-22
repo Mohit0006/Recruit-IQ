@@ -91,9 +91,9 @@ The system is built around a **hybrid RAG engine** that combines semantic vector
            │  └────────────────┘                                                         │
            └──────────┬──────────────────────────────────────────────────────────────────┘
                       │      ▲ 
-                      │      │ 16. FastAPI Prompts Local llm (Open-Source LLM)
+                      │      │ 16. FastAPI Prompts Local LLM (Open-Source LLM)
                       │      ▼ 
-                      │ [ Local llm Evaluator ]
+                      │ [ Local LLM Evaluator ]
                       │
                       ▼
                ┌──────────────────────┐
