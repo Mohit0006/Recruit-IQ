@@ -32,7 +32,7 @@ The system is built around a **hybrid RAG engine** that combines semantic vector
        ▼                                                ▼
  ┌──────────────────────┐                     ┌──────────────────────┐
  │ Candidate Portal     │                     │ Command Center       │
- │ (Streamlit UI)       │                     │ (Streamlit UI)       │
+ │     (React)          │                     │ (Streamlit UI)       │
  └──────┬───────────────┘                     └──────┬───────────────┘
         │ 1. Submits Resume                          │ 9. NLP Command
         ▼                                            ▼
@@ -91,9 +91,9 @@ The system is built around a **hybrid RAG engine** that combines semantic vector
            │  └────────────────┘                                                         │
            └──────────┬──────────────────────────────────────────────────────────────────┘
                       │      ▲ 
-                      │      │ 16. FastAPI Prompts OpenRouter (Open-Source LLM)
+                      │      │ 16. FastAPI Prompts Local llm (Open-Source LLM)
                       │      ▼ 
-                      │ [ OpenRouter API Evaluator ]
+                      │ [ Local llm Evaluator ]
                       │
                       ▼
                ┌──────────────────────┐
