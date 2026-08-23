@@ -111,36 +111,54 @@ The system is built around a hybrid RAG engine that combines semantic vector sea
 
 
 ```
-## 🚀 Key Features
+🚀 Key Features
+🔍 Hybrid RAG Engine
 
-### 🔍 Hybrid RAG Engine
-Combines **ChromaDB vector semantic search** with **SQLite FTS5 keyword search**, fused via the **Reciprocal Rank Fusion (RRF)** algorithm. This dual-retrieval approach delivers significantly more accurate rankings than single-method retrieval — capturing both conceptual similarity and exact keyword matches simultaneously.
+Combines ChromaDB vector semantic search with SQLite FTS5 keyword search, fused via the Reciprocal Rank Fusion (RRF) algorithm — a mathematically proven re-ranking method. Built from scratch without abstraction frameworks like LangChain or LlamaIndex, providing direct low-level control over the entire retrieval and fusion pipeline. Delivers significantly more accurate rankings than single-method retrieval by capturing both conceptual similarity and exact keyword matches simultaneously.
 
-### 🤖 LLM Evaluator
-After RRF fusion, full resume texts are POSTed to a FastAPI `/rank_text` endpoint, which prompts an **open-source LLM via OpenRouter API** to evaluate and score each candidate based on years of experience, tech stack alignment, and project relevance. Returns structured JSON evaluations.
+🤖 Local LLM Fine-Tuning (QLoRA / PEFT)
 
-### ⚡ FastAPI Async Microservice
+Fine-tuned Qwen 2.5 3B locally using QLoRA (4-bit quantized LoRA, PEFT) specifically for resume ranking after ChromaDB vector retrieval. A structured evaluation set (available on GitHub) was designed to validate model parity and ranking quality. This replaces expensive cloud LLM API calls with a domain-adapted, locally hosted model at near-zero inference cost.
+
+⚡ FastAPI Async Microservice
+
 A dedicated background service with two endpoints:
-- `/trigger_ingestion` — triggered via async webhook on resume submission; runs PyMuPDF extraction, ChromaDB vectorization, and FTS5 indexing without blocking the main dashboard
-- `/rank_text` — accepts resume text and JD context, prompts the LLM evaluator, returns scored JSON
 
-### 💬 NLP Chat Agent
-Admins type plain-English commands like *"Rank top 3 candidates for Senior Full Stack Engineer and assign to Sarah."* The OpenRouter API parses intent into a structured JSON object, extracts role, limit, and assignee, and executes the action autonomously on the live database.
+/trigger_ingestion — triggered via async webhook on resume submission; runs PyMuPDF extraction (with OCR support for scanned documents), ChromaDB vectorization, and FTS5 indexing without blocking the main dashboard
+/rank_text — accepts resume text and JD context, runs local Qwen 2.5 3B inference, returns structured JSON candidate evaluations
+🌐 Multilingual Candidate Portal (BHASHINI API)
 
-### 📅 Zoom OAuth2 Integration
+Integrated BHASHINI API on the candidate portal for real-time Indic language translation — enabling Hindi and regional language users to submit resumes and interact with forms in their native language. Frontend built with React (HTML, CSS, JavaScript) as a responsive, mobile-compatible single-page application.
+
+📄 Document Processing & OCR Pipeline
+
+Complete document processing workflow using PyMuPDF — supporting both native PDF text extraction and OCR-based extraction for scanned documents. Designed to handle unstructured document ingestion at scale, directly applicable to policy corpus preparation from government circulars and official records.
+
+💬 NLP Chat Agent
+
+Admins type plain-English commands like "Rank top 3 candidates for Senior Full Stack Engineer and assign to Sarah." The OpenRouter API parses intent into a structured JSON object via prompt engineering, extracts role, limit, and assignee, and executes the action autonomously on the live database — eliminating manual UI interaction entirely.
+
+📅 Zoom OAuth2 Integration
+
 Dynamically provisions secure, scheduled video interview rooms per candidate with custom configurations — mute on entry, video enabled — via the Zoom OAuth2 REST API.
 
-### 📧 SMTP Outreach Automation
+📧 SMTP Outreach Automation
+
 Automatically dispatches personalized multi-part MIME interview invitation emails containing the candidate's scheduled time, Zoom meeting link, and assigned interviewer name.
 
-### 🔐 Role-Based Access Control (RBAC)
+🔐 Role-Based Access Control (RBAC)
+
 Two strictly separated interfaces:
-- **Candidate Portal** — public-facing with Regex email validation, mandatory field checks, and automatic file sanitization
-- **Admin Command Center** — secure internal dashboard with full AI chat agent and database execution access; Interviewers get read-only access
 
-### 📄 Custom PDF Rendering Engine
-Engineered a URL routing bypass (`/?view_resume=email`) that decodes raw binary PDF files into Base64 streams and renders them in a full-screen iframe — solving the browser `file://` security restriction without any external dependencies.
+Candidate Portal — public-facing multilingual portal with Regex email validation, mandatory field checks, and automatic file sanitization
+Admin Command Center — secure internal dashboard with full AI chat agent and database execution access; Interviewers get read-only access
+📊 Streamlit Dashboard
 
+Interactive Admin Command Center built with Streamlit for real-time recruitment analytics, AI command execution, candidate ranking visualisation, and pipeline monitoring.
+
+📄 Custom PDF Rendering Engine
+
+Engineered a URL routing bypass (/?view_resume=email) that decodes raw binary PDF files into Base64 streams and renders them in a full-screen iframe — solving the browser file:// security restriction without any external dependencies.
 ---
 
 ## 🛠️ Tech Stack
