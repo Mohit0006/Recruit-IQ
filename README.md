@@ -159,6 +159,7 @@ Interactive Admin Command Center built with Streamlit for real-time recruitment 
 📄 Custom PDF Rendering Engine
 
 Engineered a URL routing bypass (/?view_resume=email) that decodes raw binary PDF files into Base64 streams and renders them in a full-screen iframe — solving the browser file:// security restriction without any external dependencies.
+
 ---
 
 ## 🛠️ Tech Stack
