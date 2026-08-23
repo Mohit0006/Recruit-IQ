@@ -15,9 +15,9 @@ https://github.com/user-attachments/assets/98cb3a73-50c1-4fee-ac04-94c2fc991cf5
 
 ## 🧠 What is RecruitIQ?
 
-RecruitIQ is a dual-interface recruitment platform that eliminates manual resume screening and hiring logistics entirely. Candidates apply through a public portal. Admins type plain-English commands. The AI handles everything else — ranking, scheduling, and outreach — autonomously.
+RecruitIQ is a dual-interface recruitment platform that eliminates manual resume screening and hiring logistics entirely. Candidates apply through a multilingual public portal. Admins type plain-English commands. The AI handles everything else — ranking, scheduling, and outreach — autonomously.
 
-The system is built around a **hybrid RAG engine** that combines semantic vector search (ChromaDB) and keyword search (SQLite FTS5), fused via **Reciprocal Rank Fusion (RRF)**, and evaluated by an **open-source LLM** via the OpenRouter API.
+The system is built around a hybrid RAG engine that combines semantic vector search (ChromaDB) and keyword search (SQLite FTS5), fused via Reciprocal Rank Fusion (RRF). A locally fine-tuned Qwen 2.5 3B model (QLoRA/PEFT) handles final candidate scoring — replacing cloud LLM calls entirely with a domain-adapted, locally hosted model.
 
 ```
 ## ⚙️ System Architecture
