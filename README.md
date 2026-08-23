@@ -167,29 +167,31 @@ Engineered a URL routing bypass (/?view_resume=email) that decodes raw binary PD
 | Layer | Technology |
 |---|---|
 | Backend | Python, FastAPI, Streamlit |
-| AI / RAG | ChromaDB, SQLite FTS5, Reciprocal Rank Fusion |
-| LLM | Open-Source LLM via OpenRouter API |
-| PDF Processing | PyMuPDF |
-| Database | SQLite (Jobs, Users, Candidates) |
-| Data Orchestration | Pandas |
+| Frontend | React, HTML, CSS, JavaScript |
+| AI / RAG | ChromaDB, FAISS-equivalent, SQLite FTS5, Reciprocal Rank Fusion |
+| LLM & Fine-Tuning | Qwen 2.5 3B, QLoRA, PEFT, OpenRouter API |
+| Indic NLP | BHASHINI API, AI4Bharat ecosystem |
+| Document Processing | PyMuPDF, OCR-based Text Extraction |
+| Database | SQLite (Jobs, Users, Candidates), Pandas |
 | Automation | Zoom OAuth2 REST API, smtplib (SMTP) |
 | Security | RBAC, Base64 PDF Streaming, Regex Validation |
+| Tools | Git, GitHub, Async Webhooks, JSON |
 
 ---
 
 ## 📊 How the RAG Process Works (Step by Step)
 
-1. **Resume submitted** via Candidate Portal → stored in `/resumes`, logged as `Pending` in SQLite
+1. **Resume submitted** via multilingual Candidate Portal (BHASHINI API) → stored in `/resumes`, logged as `Pending` in SQLite
 2. **Async webhook** fires to FastAPI `/trigger_ingestion`
-3. **PyMuPDF** extracts full text from the PDF
-4. Text is **simultaneously indexed** — embedded into ChromaDB (vectors) and indexed in SQLite FTS5 (keywords). Candidate marked `Vectorized`.
-5. **Admin types NLP command** → OpenRouter API parses intent → fetches target Job Description from SQLite
+3. **PyMuPDF** extracts full text from the PDF — with OCR support for scanned documents
+4. Text is **simultaneously indexed** — embedded into ChromaDB (vectors) and indexed in SQLite FTS5 (keywords). Candidate marked `Vectorized`
+5. **Admin types NLP command** → OpenRouter API parses intent via prompt engineering → fetches target Job Description from SQLite
 6. RAG engine runs **ChromaDB semantic search** + **FTS5 keyword search** in parallel
 7. Both result sets are **fused via Reciprocal Rank Fusion (RRF)** — a mathematically proven re-ranking algorithm
 8. Top candidates' full resumes are **POSTed to FastAPI `/rank_text`**
-9. FastAPI **prompts an open-source LLM** to score each candidate with structured JSON evaluations
+9. **Locally fine-tuned Qwen 2.5 3B** (QLoRA/PEFT) scores each candidate with structured JSON evaluations — no cloud API call required
 10. Results compiled into `final_hybrid_ranking.csv` → **Pandas cleans, deduplicates, and resets index**
-11. Clean ranking grid rendered in UI → **Zoom meetings provisioned + invitation emails dispatched**
+11. Clean ranking grid rendered in Streamlit UI → **Zoom meetings provisioned + invitation emails dispatched**
 
 ---
 
